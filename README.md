@@ -1,3 +1,16 @@
 # StrukturData-Q1-2501010023-Dhananjaya-A
 
-*Karakteristik Memori dan Akses Data*
+# 1. Karakteristik Memori dan Akses Data
+Array memiliki elemen yang disimpan secara kontigu (berurutan) di memori, sehingga setiap elemen bisa diakses langsung menggunakan rumus alamat (base address + i × ukuran elemen). Karena tidak perlu melakukan penelusuran, akses elemen pada Array memiliki kompleksitas O(1). Sebaliknya, Singly Linked List bersifat non-kontigu, di mana setiap node tersebar di memori dan saling terhubung melalui pointer. Untuk mengakses elemen tertentu, harus dilakukan traversal dari head sampai posisi yang diinginkan, sehingga membutuhkan waktu O(n).
+
+# 2. Analisis Efisiensi Operasi Manipulasi
+Linked List lebih unggul dibandingkan Array dalam operasi penyisipan (insertion) dan penghapusan (deletion) ketika operasi tersebut sering dilakukan di awal struktur data atau di tengah struktur, terutama jika posisi node sudah diketahui. Secara teoritis, pada Array, proses insertion dan deletion memerlukan pergeseran elemen-elemen lain untuk menjaga struktur tetap rapat di memori, sehingga kompleksitasnya menjadi O(n). Hal ini karena elemen setelah posisi tertentu harus digeser satu per satu. Sementara pada Linked List, setelah node yang dituju ditemukan, proses penyisipan atau penghapusan hanya melibatkan perubahan pointer antar node tanpa perlu memindahkan elemen lain, sehingga operasinya dapat dilakukan dalam O(1). Namun, jika posisi belum diketahui, tetap diperlukan traversal O(n), sehingga keunggulan Linked List paling terasa pada operasi manipulasi struktur yang sering dan posisi yang sudah diketahui atau dekat dengan head.
+
+# 3. Konsep Doubly Linked List
+Doubly Linked List adalah struktur data yang setiap node-nya terdiri dari tiga bagian utama, yaitu data, pointer ke node berikutnya (next), dan pointer ke node sebelumnya (prev). Keberadaan dua pointer ini memungkinkan struktur untuk melakukan penelusuran dua arah, yaitu dari depan ke belakang maupun dari belakang ke depan. Hal ini memberikan fleksibilitas yang lebih tinggi dibandingkan Singly Linked List yang hanya bisa ditelusuri satu arah. Namun, konsekuensinya adalah penggunaan memori menjadi lebih besar karena setiap node harus menyimpan satu pointer tambahan. Selain itu, meskipun lebih boros memori, Doubly Linked List lebih efisien dalam beberapa operasi seperti penghapusan node, karena akses ke node sebelumnya sudah tersedia tanpa perlu melakukan traversal ulang dari awal.
+
+# 4. Mekanisme Circular Linked List
+Circular Linked List adalah Linked List yang node terakhirnya tidak menunjuk ke NULL, melainkan kembali ke head, sehingga membentuk struktur melingkar. Berbeda dengan Linked List biasa yang memiliki akhir, Circular Linked List memungkinkan traversal berulang tanpa henti. Contoh penggunaannya adalah round-robin scheduling pada sistem operasi, di mana setiap proses dieksekusi secara bergiliran secara terus-menerus dalam satu siklus.
+
+# 5. Array Dinamis di Phyton
+Python list menggunakan Dynamic Array yang dapat membesar otomatis. Saat append dan kapasitas masih cukup, operasi berjalan O(1). Namun jika kapasitas penuh, terjadi resizing: Python membuat array baru yang lebih besar, menyalin semua elemen lama, lalu menambahkan elemen baru. Proses ini memakan O(n), tetapi jarang terjadi, sehingga rata-rata append tetap O(1) (amortized constant time).
